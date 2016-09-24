@@ -1,0 +1,137 @@
+// ----------------
+// -- MERGE SORT --
+// ----------------
+//
+// http://en.wikipedia.org/wiki/Merge_sort
+//
+
+main {
+    array int[6] A, B;
+    boolean trash;
+    int depth;
+
+
+    function boolean CopyArray(int iBegin; int iEnd) {
+        int k;
+
+        k = iBegin;
+        while( ( k < iEnd ) ) {
+            A[k] = B[k];
+            k = k + 1;
+        }
+
+        return true;
+    }
+
+
+    //  left half is A[iBegin :iMiddle-1]
+    // right half is A[iMiddle:iEnd-1   ]
+    function boolean TopDownMerge(int iBegin; int iMiddle; int iEnd) {
+        int i0, i1, j;
+
+        i0 = iBegin;
+        i1 = iMiddle;
+
+        // While there are elements in the left or right runs
+        j = iBegin;
+        while( ( j < iEnd ) ) {
+            // Como el '||' nuestro no para la evaluacion si el 1º es cierto
+            // se puede salir del rango del array
+            if( ( ( i1 >= iEnd ) || ( i0 >= iEnd ) ) ) {
+                // If left run head exists and is <= existing right run head.
+                if ( ( (i0 < iMiddle) && (i1 >= iEnd) ) ) {
+                    B[j] = A[i0];
+                    i0 = i0 + 1;
+                }
+                else {
+                    B[j] = A[i1];
+                    i1 = i1 + 1; 
+                } 
+            }
+
+            else {
+                // If left run head exists and is <= existing right run head.
+                if ( ( (i0 < iMiddle) && ( (i1 >= iEnd) || (A[i0] <= A[i1]) ) ) ) {
+                    B[j] = A[i0];
+                    i0 = i0 + 1;
+                }
+                else {
+                    B[j] = A[i1];
+                    i1 = i1 + 1; 
+                } 
+            }
+
+            j = j + 1;
+        }
+
+        return true;
+    }
+
+
+    // iBegin is inclusive; iEnd is exclusive (A[iEnd] is not in the set)
+    function boolean TopDownSplitMerge(int iBegin; int iEnd) {
+        int iMiddle;
+        boolean trash;
+
+        if( (iEnd - iBegin < 2) ) {                            // if run size == 1
+            return true;                                       //   consider it sorted
+        }
+
+        // recursively split runs into two halves until run size == 1,
+        // then merge them and return back up the call chain
+        iMiddle = (iEnd + iBegin) / 2;                     // iMiddle = mid point
+        trash = TopDownSplitMerge(iBegin, iMiddle);        // split / merge left  half
+        trash = TopDownSplitMerge(iMiddle, iEnd);          // split / merge right half
+        trash = TopDownMerge(iBegin, iMiddle, iEnd);       // merge the two half runs
+        trash = CopyArray(iBegin, iEnd);                   // copy the merged runs back to A
+
+
+        return true;
+    }
+    
+
+
+    //
+    // Suponemos que en A esta el array a ordenar
+    // y B es el auxiliar
+    //
+    function boolean TopDownMergeSort(int len) {
+        boolean trash;
+
+        trash = TopDownSplitMerge(0, len);
+
+        return true;
+    }
+
+    function boolean printArray ( int len ) {
+        int i;
+
+        i = 0;
+        while( ( i < len ) ) {
+            printf A[i];
+
+            i = i + 1;
+        }
+
+        return true;
+    }
+
+
+
+    // A = [6,3,5,1,9,8]
+    A[0] = 6; A[1] = 3; A[2] = 5; A[3] = 1; A[4] = 9; A[5] = 8;
+    depth = 0;
+
+    trash = TopDownMergeSort(6);
+    trash = printArray(6);
+
+}
+
+// --- Debe salir: ---
+// 1
+// 3
+// 5
+// 6
+// 8
+// 9
+

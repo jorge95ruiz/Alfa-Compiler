@@ -1,0 +1,8 @@
+make 
+./alfa bucle.alfa prueba.asm 
+nasm -g -o prueba.o -f elf32 prueba.asm
+gcc -m32 -o prueba prueba.o alfalib.o
+echo "Salida prueba:"
+./prueba
+make clean
+rm prueba.o tablahash.o
