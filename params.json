@@ -1,6 +1,6 @@
 {
   "name": "Alfa-compiler",
   "tagline": "",
-  "body": "### Alfa Compiler\r\nCompiler in C using Flex and Bison as analytical auxiliar tools. Automatic generation of x86 assembly language executable code (.asm). This project was done for the PAUTLEN subject in the Universidad Autónoma de Madrid.\r\n\r\n\r\n### Alfa Features\r\nThe supported language included:\r\n-Simple variables (boolean, integrer)\r\n-Vectors\r\n-Loops\r\n-Conditionals\r\n-Arithmetical and logical operations\r\n-Functions\r\n-Errors detections\r\n\r\n\r\n\r\n### Authors and Contributors\r\n@jorge95ruiz\r\n\r\n### Support or Contact\r\n\r\n",
+  "body": "### Alfa Compiler\r\nCompiler in C using Flex and Bison as analytical auxiliar tools. Automatic generation of x86 assembly language executable code (.asm). This project was done for the PAUTLEN subject in the Universidad Autónoma de Madrid.\r\n\r\n\r\n### Alfa Features\r\nThe supported language included:\r\n-Simple variables (boolean, integrer)\r\n-Vectors\r\n-Loops\r\n-Conditionals\r\n-Arithmetical and logical operations\r\n-Functions\r\n-Errors detections\r\n\r\n\r\n\r\n### Authors and Contributors\r\n@jorge95ruiz\r\n\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
