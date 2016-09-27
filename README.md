@@ -8,8 +8,7 @@
 #
 #
 # Execution:
-# In the same directory write on your command lines:
-# open terminal and move to the compiler directory and type in these commands:
+# Open a terminal and move to the compiler directory, then write on your command lines:
 # chmod +x script
 # ./script
 #
